@@ -2,6 +2,7 @@ const bars = document.querySelectorAll('.spending__bars-area__box--bar')
 const bar = document.querySelector('.spending__bars-area__box--bar')
 const amounts = document.querySelectorAll('.spending__bars-area__box--amount')
 const areaBoxes = document.querySelectorAll('.spending__bars-area__box')
+const total = document.querySelector('.amount-value')
 const valuesArr = []
 const heightArr = []
 let index = 0
@@ -31,7 +32,13 @@ function showAmount() {
 	this.firstElementChild.classList.toggle('show-amount')
 }
 
-window.addEventListener('DOMContentLoaded', fillBarsArea)
+const sumAllExpenses = () => { 
+    const sum = valuesArr.reduce((arrSum, a) => arrSum + a, 0 )
+    total.textContent = sum
+}
+
+window.addEventListener('DOMContentLoaded', fillBarsArea )
+window.addEventListener('DOMContentLoaded', sumAllExpenses )
 areaBoxes.forEach(box => box.addEventListener('click', showAmount))
 bars.forEach(bar =>
 	bar.addEventListener('mouseover', e => {
