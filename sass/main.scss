@@ -1,0 +1,395 @@
+@use './colors' as colors;
+
+*,
+::after,
+::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 67.5%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'DM Sans', sans-serif;
+	background-color: colors.$cream;
+}
+
+.main {
+	width: 38rem;
+}
+
+.wrapper {
+	width: 100%;
+	max-width: 1400px;
+}
+
+.balance {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 1.8rem;
+	height: 9rem;
+	background-color: colors.$soft-red;
+	border-radius: 1.2rem;
+
+	&__description,
+	&__logo {
+		margin: 1rem 2.4rem;
+	}
+
+	&__description {
+		color: colors.$cream;
+
+		&--text {
+			margin-bottom: 1rem;
+			font-size: 1.2rem;
+		}
+
+		&--amount {
+			margin-top: 1rem;
+			font-size: 1.8rem;
+			font-weight: bold;
+		}
+	}
+}
+
+.spending {
+	height: 37rem;
+	background-color: colors.$very-pale-orange;
+	border-radius: 1.2rem;
+
+	&__title,
+	&__bars-area,
+	&__total,
+	&__line {
+		margin-left: 2.4rem;
+		margin-right: 2.4rem;
+	}
+
+	&__title {
+		padding: 3rem 0;
+		font-size: 1.8rem;
+		color: colors.$dark-brown;
+	}
+
+	&__bars-area {
+		display: flex;
+		justify-content: space-between;
+		align-items: end;
+		height: 16rem;
+
+		&__box {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 0 0.6rem;
+
+			&--amount,
+			&--bar {
+				border-radius: 0.4rem;
+			}
+
+			&--amount {
+				display: none;
+				margin: 0 0 0.8rem 0;
+				padding: 0.4rem 0.2rem;
+				font-size: 1.2rem;
+				font-weight: bold;
+				background-color: colors.$dark-brown;
+				color: colors.$cream;
+				animation: showAmount 0.3s;
+			}
+
+			&--bar {
+				width: 3.5rem;
+				height: 13rem;
+				max-height: 13rem;
+				background-color: colors.$soft-red;
+				cursor: pointer;
+				transition: background-color 0.3s;
+			}
+
+			&--day {
+				margin-top: 0.6rem;
+				color: colors.$medium-brown;
+			}
+
+			.show-amount {
+				display: flex;
+			}
+		}
+
+		.mobile {
+			margin-top: 3rem;
+		}
+	}
+
+	&__line {
+		margin: 2rem 2.4rem;
+	}
+
+	&__total {
+		display: flex;
+		justify-content: space-between;
+
+		&__month {
+			&--title {
+				font-size: 1.4rem;
+				color: colors.$medium-brown;
+			}
+
+			&--amount,
+			.amount-value {
+				margin-top: 0.4rem;
+				font-size: 2.8rem;
+				color: colors.$dark-brown;
+				font-weight: bold;
+			}
+		}
+
+		&__last-month {
+			display: flex;
+			flex-direction: column;
+			justify-content: end;
+
+			&--change {
+				font-size: 1.4rem;
+				font-weight: bold;
+				color: colors.$dark-brown;
+			}
+
+			&--title {
+				margin-top: 0.4rem;
+				font-size: 1.4rem;
+				color: colors.$medium-brown;
+			}
+		}
+	}
+}
+
+@keyframes showAmount {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@media (max-width: 300px) {
+	.main {
+		max-width: 26rem;
+	}
+
+	.balance {
+		&__description,
+		&__logo {
+			margin: 1rem 1.2rem;
+		}
+	}
+
+	.spending {
+		min-height: 58rem;
+
+		&__title,
+		&__bars-area,
+		&__total,
+		&__line {
+			margin-left: 1.2rem;
+			margin-right: 1.2rem;
+		}
+
+		&__bars-area {
+			flex-wrap: wrap;
+
+			&__box {
+				margin-top: 1rem;
+				padding: 0;
+
+				&--amount {
+					font-size: 1rem;
+				}
+			}
+		}
+
+		&__line {
+			margin-top: 22rem;
+		}
+	}
+}
+
+@media (max-width: 375px) {
+	.main {
+		width: 30rem;
+	}
+
+	.balance {
+		&__description,
+		&__logo {
+			margin: 1rem 2.4rem;
+		}
+	}
+
+	.spending {
+		min-height: 58rem;
+
+		&__title,
+		&__bars-area,
+		&__total,
+		&__line {
+			margin-left: 2.4rem;
+			margin-right: 2.4rem;
+		}
+
+		&__bars-area {
+			flex-wrap: wrap;
+
+			&__box {
+				margin: 1rem 0 0 1rem;
+
+				&--bar {
+					width: 3.5rem;
+				}
+
+				&--amount {
+					font-size: 1rem;
+				}
+			}
+		}
+
+		&__line {
+			margin-top: 22rem;
+		}
+	}
+}
+
+@media (min-width: 375px) {
+	.main {
+		width: 34rem;
+	}
+
+	.balance {
+		&__description,
+		&__logo {
+			margin: 1rem 2.4rem;
+		}
+	}
+
+	.spending {
+		height: 58rem;
+
+		&__title,
+		&__bars-area,
+		&__total,
+		&__line {
+			margin-left: 2.4rem;
+			margin-right: 2.4rem;
+		}
+
+		&__bars-area {
+			flex-wrap: wrap;
+
+			&__box {
+				margin: 1rem 0 0 2rem;
+
+				&--amount {
+					font-size: 1rem;
+				}
+			}
+		}
+
+		&__line {
+			margin-top: 22rem;
+		}
+	}
+}
+
+@media (min-width: 420px) {
+	.main {
+		width: 38rem;
+	}
+
+	.spending {
+		height: 37rem;
+
+		&__bars-area {
+			flex-wrap: nowrap;
+
+			&__box {
+				margin: 0;
+			}
+		}
+
+		&__line {
+			margin: 2rem 2.4rem;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.balance {
+		&__description {
+			&--text {
+				font-size: 1.8rem;
+			}
+
+			&--amount {
+				font-size: 2.4rem;
+			}
+		}
+	}
+
+	.main {
+		width: 48rem;
+	}
+
+	.spending {
+		&__bars-area {
+			&__box {
+				&--amount {
+					font-size: 1.4rem;
+				}
+
+				&--bar {
+					width: 3.4rem;
+				}
+			}
+		}
+
+		&__line {
+			margin: 2rem 2.4rem;
+		}
+
+		&__total {
+			&__month {
+				&--title {
+					font-size: 1.8rem;
+				}
+
+				&--amount,
+				.amount-value {
+					font-size: 3.2rem;
+				}
+			}
+
+			&__last-month {
+				&--change {
+					font-size: 1.8rem;
+				}
+
+				&--title {
+					font-size: 1.8rem;
+				}
+			}
+		}
+	}
+}

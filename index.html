@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses Chart Component</title>
+    <link rel="icon" type="image/x-icon" href="./img/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <main class="main">
+        <div class="wrapper">
+            <section class="balance">
+                <div class="balance__description">
+                    <p class="balance__description--text">My balance</p>
+                    <p class="balance__description--amount">$921.48</p>
+                </div>
+                <img src="./img/logo.svg" class="balance__logo">
+            </section>
+            <section class="spending">
+                <h1 class="spending__title">Spending - Last 7 days</h1>
+                <div class="spending__bars-area">
+                    <div class="spending__bars-area__box">
+                        <p class="spending__bars-area__box--amount" data-value="17.45">$17.45</p>
+                        <div class="spending__bars-area__box--bar" data-max="13"></div>
+                        <p class="spending__bars-area__box--day">mon</p>
+                    </div>
+                    <div class="spending__bars-area__box">
+                        <p class="spending__bars-area__box--amount" data-value="34.91">$34.91</p>
+                        <div class="spending__bars-area__box--bar" data-max="13"></div>
+                        <p class="spending__bars-area__box--day" >tue</p>
+                    </div>
+                    <div class="spending__bars-area__box">
+                        <p class="spending__bars-area__box--amount" data-value="52.36">$52.36</p>
+                        <div class="spending__bars-area__box--bar" data-max="13"></div>
+                        <p class="spending__bars-area__box--day" >wed</p>
+                    </div>
+                    <div class="spending__bars-area__box">
+                        <p class="spending__bars-area__box--amount" data-value="31.07">$31.07</p>
+                        <div class="spending__bars-area__box--bar" data-max="13"></div>
+                        <p class="spending__bars-area__box--day" >thu</p>
+                    </div>
+
+                    <div class="spending__bars-area__box mobile">
+                        <p class="spending__bars-area__box--amount" data-value="23.39">$23.39</p>
+                        <div class="spending__bars-area__box--bar" data-max="13"></div>
+                        <p class="spending__bars-area__box--day" >fri</p>
+                    </div>
+                    <div class="spending__bars-area__box mobile">
+                        <p class="spending__bars-area__box--amount" data-value="43.28">$43.28</p>
+                        <div class="spending__bars-area__box--bar" data-max="13"></div>
+                        <p class="spending__bars-area__box--day" >sat</p>
+                    </div>
+                    <div class="spending__bars-area__box mobile">
+                        <p class="spending__bars-area__box--amount" data-value="25.48">$25.48</p>
+                        <div class="spending__bars-area__box--bar" data-max="13"></div>
+                        <p class="spending__bars-area__box--day" >sun</p>
+                    </div>
+                    </div>
+
+                    <hr class="spending__line">
+
+                    <div class="spending__total">
+                        <div class="spending__total__month">
+                            <p class="spending__total__month--title">Total this month</p>
+                            <p class="spending__total__month--amount">$<span class="amount-value">523.23</span></p>
+                        </div>
+                        <div class="spending__total__last-month">
+                            <p class="spending__total__last-month--change">+2.4%</p>
+                            <p class="spending__total__last-month--title">from last month</p>
+                        </div>
+                    </div>
+            </section>
+        </div>
+    </main>
+
+
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

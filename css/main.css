@@ -1,0 +1,290 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 67.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "DM Sans", sans-serif;
+  background-color: hsl(27, 66%, 92%);
+}
+
+.main {
+  width: 38rem;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1400px;
+}
+
+.balance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.8rem;
+  height: 9rem;
+  background-color: hsl(10, 79%, 65%);
+  border-radius: 1.2rem;
+}
+.balance__description, .balance__logo {
+  margin: 1rem 2.4rem;
+}
+.balance__description {
+  color: hsl(27, 66%, 92%);
+}
+.balance__description--text {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+.balance__description--amount {
+  margin-top: 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.spending {
+  height: 37rem;
+  background-color: hsl(33, 100%, 98%);
+  border-radius: 1.2rem;
+}
+.spending__title, .spending__bars-area, .spending__total, .spending__line {
+  margin-left: 2.4rem;
+  margin-right: 2.4rem;
+}
+.spending__title {
+  padding: 3rem 0;
+  font-size: 1.8rem;
+  color: hsl(25, 47%, 15%);
+}
+.spending__bars-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  height: 16rem;
+}
+.spending__bars-area__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0.6rem;
+}
+.spending__bars-area__box--amount, .spending__bars-area__box--bar {
+  border-radius: 0.4rem;
+}
+.spending__bars-area__box--amount {
+  display: none;
+  margin: 0 0 0.8rem 0;
+  padding: 0.4rem 0.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: hsl(25, 47%, 15%);
+  color: hsl(27, 66%, 92%);
+  animation: showAmount 0.3s;
+}
+.spending__bars-area__box--bar {
+  width: 3.5rem;
+  height: 13rem;
+  max-height: 13rem;
+  background-color: hsl(10, 79%, 65%);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.spending__bars-area__box--day {
+  margin-top: 0.6rem;
+  color: hsl(28, 10%, 53%);
+}
+.spending__bars-area__box .show-amount {
+  display: flex;
+}
+.spending__bars-area .mobile {
+  margin-top: 3rem;
+}
+.spending__line {
+  margin: 2rem 2.4rem;
+}
+.spending__total {
+  display: flex;
+  justify-content: space-between;
+}
+.spending__total__month--title {
+  font-size: 1.4rem;
+  color: hsl(28, 10%, 53%);
+}
+.spending__total__month--amount,
+.spending__total__month .amount-value {
+  margin-top: 0.4rem;
+  font-size: 2.8rem;
+  color: hsl(25, 47%, 15%);
+  font-weight: bold;
+}
+.spending__total__last-month {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.spending__total__last-month--change {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: hsl(25, 47%, 15%);
+}
+.spending__total__last-month--title {
+  margin-top: 0.4rem;
+  font-size: 1.4rem;
+  color: hsl(28, 10%, 53%);
+}
+
+@keyframes showAmount {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 300px) {
+  .main {
+    max-width: 26rem;
+  }
+  .balance__description, .balance__logo {
+    margin: 1rem 1.2rem;
+  }
+  .spending {
+    min-height: 58rem;
+  }
+  .spending__title, .spending__bars-area, .spending__total, .spending__line {
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+  }
+  .spending__bars-area {
+    flex-wrap: wrap;
+  }
+  .spending__bars-area__box {
+    margin-top: 1rem;
+    padding: 0;
+  }
+  .spending__bars-area__box--amount {
+    font-size: 1rem;
+  }
+  .spending__line {
+    margin-top: 22rem;
+  }
+}
+@media (max-width: 375px) {
+  .main {
+    width: 30rem;
+  }
+  .balance__description, .balance__logo {
+    margin: 1rem 2.4rem;
+  }
+  .spending {
+    min-height: 58rem;
+  }
+  .spending__title, .spending__bars-area, .spending__total, .spending__line {
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+  }
+  .spending__bars-area {
+    flex-wrap: wrap;
+  }
+  .spending__bars-area__box {
+    margin: 1rem 0 0 1rem;
+  }
+  .spending__bars-area__box--bar {
+    width: 3.5rem;
+  }
+  .spending__bars-area__box--amount {
+    font-size: 1rem;
+  }
+  .spending__line {
+    margin-top: 22rem;
+  }
+}
+@media (min-width: 375px) {
+  .main {
+    width: 34rem;
+  }
+  .balance__description, .balance__logo {
+    margin: 1rem 2.4rem;
+  }
+  .spending {
+    height: 58rem;
+  }
+  .spending__title, .spending__bars-area, .spending__total, .spending__line {
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+  }
+  .spending__bars-area {
+    flex-wrap: wrap;
+  }
+  .spending__bars-area__box {
+    margin: 1rem 0 0 2rem;
+  }
+  .spending__bars-area__box--amount {
+    font-size: 1rem;
+  }
+  .spending__line {
+    margin-top: 22rem;
+  }
+}
+@media (min-width: 420px) {
+  .main {
+    width: 38rem;
+  }
+  .spending {
+    height: 37rem;
+  }
+  .spending__bars-area {
+    flex-wrap: nowrap;
+  }
+  .spending__bars-area__box {
+    margin: 0;
+  }
+  .spending__line {
+    margin: 2rem 2.4rem;
+  }
+}
+@media (min-width: 1200px) {
+  .balance__description--text {
+    font-size: 1.8rem;
+  }
+  .balance__description--amount {
+    font-size: 2.4rem;
+  }
+  .main {
+    width: 48rem;
+  }
+  .spending__bars-area__box--amount {
+    font-size: 1.4rem;
+  }
+  .spending__bars-area__box--bar {
+    width: 3.4rem;
+  }
+  .spending__line {
+    margin: 2rem 2.4rem;
+  }
+  .spending__total__month--title {
+    font-size: 1.8rem;
+  }
+  .spending__total__month--amount,
+  .spending__total__month .amount-value {
+    font-size: 3.2rem;
+  }
+  .spending__total__last-month--change {
+    font-size: 1.8rem;
+  }
+  .spending__total__last-month--title {
+    font-size: 1.8rem;
+  }
+}/*# sourceMappingURL=main.css.map */
